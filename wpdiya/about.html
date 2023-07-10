@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels ~ TRS</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+   
+    :root{
+    --orange:#ffa500;
+  }
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin:0; padding:0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  outline: none; border:none;
+  text-decoration: none;
+  transition: all .2s linear;
+}
+*::selection{
+    background-color:(--orange); 
+    color:#fff;
+}
+
+h1 {
+  font-size: 50px;
+}
+html{
+    font-size: 75.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+  }
+
+  section{
+    padding:2rem 9%;
+  }
+
+  header{
+    position: fixed;
+    top:0; left: 0; right:0;
+    background:#333;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:2rem 9%;
+  }
+
+  header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color:#fff;
+    text-transform: uppercase;
+  }
+ 
+  header .logo span{
+    color:var(--orange);
+  }
+  
+  header .navbar a{
+    color:#fff;
+    font-size: 2rem;
+    margin:0 .8rem;
+  }
+  
+  header .navbar a:hover{
+    color:var(--orange);
+  }
+  
+  header .icons i{
+    font-size: 2.5rem;
+    color:#fff;
+    cursor: pointer;
+    margin-right: 2rem;
+  }
+  
+  header .icons i:hover{
+    color:var(--orange);
+  }
+  
+  header .search-bar-container{
+    position: absolute;
+    top:100%; left: 0; right:0;
+    padding:1.5rem 2rem;
+    background:#333;
+    border-top: .1rem solid rgba(255,255,255,.2);
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .search-bar-container.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }  
+
+
+  header .search-bar-container #search-bar{
+    width:100%;
+    padding:1rem;
+    text-transform: none;
+    color:#333;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+  }
+  
+  header .search-bar-container label{
+    color:#fff;
+    cursor: pointer;
+    font-size: 3rem;
+    margin-left: 1.5rem;
+  }
+  
+  header .search-bar-container label:hover{
+    color:var(--orange);
+  }
+  main{
+  background-image: linear-gradient(to left, #ffffff 63%, #cc8c16 118%);
+  align-items: center;
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+}
+
+  .footer{
+    background:#333;
+  }
+  
+  .footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+  }
+  
+  .footer .box-container .box{
+    padding:1rem 0;
+    flex:1 1 25rem;
+  }
+  
+  .footer .box-container .box h4{
+    font-size: 2.2rem;
+    padding:.7rem 0;
+    color:#fff;
+  }
+  
+  .footer .box-container .box p{
+    font-size: 1.3rem;
+    padding:.7rem 0;
+    color:#eee;
+  }
+  
+  .footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    padding:.7rem 0;
+    color:#eee;
+  }
+  
+  .footer .box-container .box a:hover{
+    color:var(--orange);
+    text-decoration: underline;
+  }
+  
+  .footer .credit{
+    text-align: center;
+    padding:2rem 1rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: normal;
+    color:#fff;
+    border-top: .1rem solid rgba(255,255,255,.2);
+  }
+  
+  .footer .credit span{
+    color:var(--orange);
+  }
+</style>
+</head>
+<body>
+    <!-- header section -->
+<header>
+    <a href="#" class="logo"><span>VISI</span>CITIES</a>
+
+    <nav class="navbar">
+        <a href="front_page.html">Home</a>
+        <a href="hotels.html">Hotels</a>
+        <a href="about.html">About</a>
+        <a href="Contact.html">Contact</a>
+    </nav>
+
+    <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="You can search here...">
+        <label for="search-bar" class="fas fa-search"></label>
+    </form>
+
+</header>
+
+<main>
+<br><br><br>
+        <h2>VISICITIES is a startup founded by Diya Gandhi, Manishka Pareta and Samarth Varma.</h2>
+    
+     
+
+</main>
+
+<!-- footer section  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h4>About us</h4>
+            <p>We want to give you the best experince of your life.</p>
+            <p>Welcome to our Portal</p>
+        </div>
+        <div class="box">
+            <h4>branch locations</h4>
+            <a href="#">India</a>
+            <a href="#">USA</a>
+            <a href="#">UK</a>
+            <a href="#">France</a>
+        </div>
+        <div class="box">
+            <h4>quick links</h4>
+            <a href="#">home</a>
+            <a href="#">Hotels</a>
+            <a href="#">About</a>
+            <a href="#">contact</a>
+        </div>
+        <div class="box">
+            <h4>follow us</h4>
+            <a href="https://www.facebook.com/">facebook</a>
+            <a href="https://www.instagram.com/jaymaiyani_/">instagram</a>
+            <a href="https://twitter.com/j29552333">twitter</a>
+            <a href="https://www.linkedin.com/in/jay-maiyani-a8bb35198/">linkedin</a>
+        </div>
+
+    </div>
+
+    <h1 class="credit"> created by <span> samarth, diya and manishka </span> </h1>
+
+</section>
+
+    
+</body>
+</html>

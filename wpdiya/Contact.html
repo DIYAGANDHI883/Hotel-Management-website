@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us ~ TRS</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+:root{
+    --orange:#ffa500;
+  }
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin:0; padding:0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  outline: none; border:none;
+  text-decoration: none;
+  transition: all .2s linear;
+}
+
+*::selection{
+    background-color:(--orange); 
+    color:#fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+  }
+
+  section{
+    padding:2rem 9%;
+  }
+
+  header{
+    position: fixed;
+    top:0; left: 0; right:0;
+    background:#333;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:2rem 9%;
+  }
+
+  header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color:#fff;
+    text-transform: uppercase;
+  }
+ 
+  header .logo span{
+    color:var(--orange);
+  }
+  
+  header .navbar a{
+    color:#fff;
+    font-size: 2rem;
+    margin:0 .8rem;
+  }
+  
+  header .navbar a:hover{
+    color:var(--orange);
+  }
+  
+  header .icons i{
+    font-size: 2.5rem;
+    color:#fff;
+    cursor: pointer;
+    margin-right: 2rem;
+  }
+  
+  header .icons i:hover{
+    color:var(--orange);
+  }
+  
+  header .search-bar-container{
+    position: absolute;
+    top:100%; left: 0; right:0;
+    padding:1.5rem 2rem;
+    background:#333;
+    border-top: .1rem solid rgba(255,255,255,.2);
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .search-bar-container.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }  
+
+
+  header .search-bar-container #search-bar{
+    width:100%;
+    padding:1rem;
+    text-transform: none;
+    color:#333;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+  }
+  
+  header .search-bar-container label{
+    color:#fff;
+    cursor: pointer;
+    font-size: 3rem;
+    margin-left: 1.5rem;
+  }
+  
+  header .search-bar-container label:hover{
+    color:var(--orange);
+  }
+  
+  .login-form-container{
+    position: fixed;
+    top:-120%; left: 0;
+    z-index: 10000;
+    min-height: 100vh;
+    width:100%;
+    background:rgba(0,0,0,.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-form-container.active{
+    top:0;
+  }
+  
+  .login-form-container form{
+    margin:2rem;
+    padding:1.5rem 2rem;
+    border-radius: .5rem;
+    background:#fff;
+    width:50rem;
+  }
+  
+  .login-form-container form h3{
+    font-size: 3rem;
+    color:#444;
+    text-transform: uppercase;
+    text-align: center;
+    padding:1rem 0;
+  }
+  
+  .login-form-container form .box{
+    width:100%;
+    padding:1rem;
+    font-size: 1.7rem;
+    color:#333;
+    margin:.6rem 0;
+    border:.1rem solid rgba(0,0,0,.3);
+    text-transform: none;
+  }
+  
+  .login-form-container form .box:focus{
+    border-color: var(--orange);;
+  }
+  
+  .login-form-container form #remember{
+    margin:2rem 0;
+  }
+  
+  .login-form-container form label{
+    font-size: 1.5rem;
+  }
+  
+  .login-form-container form .btn{
+    display: block;
+    width:100%;
+  }
+  
+  .login-form-container form p{
+    padding:.5rem 0;
+    font-size: 1.5rem;
+    color:#666;
+  }
+  
+  .login-form-container form p a{
+    color:var(--orange);
+  }
+  
+  .login-form-container form p a:hover{
+    color:#333;
+    text-decoration: underline;
+  }
+  
+  .login-form-container #form-close{
+    position: absolute;
+    top:2rem; right:3rem;
+    font-size: 5rem;
+    color:#fff;
+    cursor: pointer;
+  }
+  
+  .btn{
+    display: inline-block;
+    margin-top: 1rem;
+    background:var(--orange);
+    color:#fff;
+    padding:.8rem 3rem;
+    border:.2rem solid var(--orange);
+    cursor: pointer;
+    font-size: 1.7rem;
+  }
+  main{
+  background-image: linear-gradient(to left, #ffffff 63%, #cc8c16 118%);
+  align-items: center;
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-info{
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+
+.card{
+  background: #2f3542;
+  padding: 0 20px;
+  margin: 0 10px;
+  width: calc(33% - 20px);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.card-icon{
+  font-size: 28px;
+  background: #ff6348;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px !important;
+  border-radius: 50%;
+  transition: 0.3s linear;
+}
+
+.card:hover .card-icon{
+  background: none;
+  color: #ff6348;
+  transform: scale(1.6);
+}
+
+.card p{
+  margin-top: 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  max-height: 0;
+  opacity: 0;
+  transition: 0.3s linear;
+}
+
+.card:hover p{
+  max-height: 60px;
+  opacity: 1;
+}
+
+
+@media screen and (max-width:800px) {
+  .contact-info{
+    flex-direction: column;
+  }
+  .card{
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0;
+  }
+}
+
+  .footer{
+    background:#333;
+  }
+  
+  .footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+  }
+  
+  .footer .box-container .box{
+    padding:1rem 0;
+    flex:1 1 25rem;
+  }
+  
+  .footer .box-container .box h4{
+    font-size: 2.2rem;
+    padding:.7rem 0;
+    color:#fff;
+  }
+  
+  .footer .box-container .box p{
+    font-size: 1.3rem;
+    padding:.7rem 0;
+    color:#eee;
+  }
+  
+  .footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    padding:.7rem 0;
+    color:#eee;
+  }
+  
+  .footer .box-container .box a:hover{
+    color:var(--orange);
+    text-decoration: underline;
+  }
+  
+  .footer .credit{
+    text-align: center;
+    padding:2rem 1rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: normal;
+    color:#fff;
+    border-top: .1rem solid rgba(255,255,255,.2);
+  }
+  
+  .footer .credit span{
+    color:var(--orange);
+  }
+
+  </style>
+</head>
+<body>
+      <!-- header section -->
+<header>
+    <a href="#" class="logo"><span>VISI</span>CITIES</a>
+
+    <nav class="navbar">
+        <a href="front_page.html">Home</a>
+        <a href="hotels.html">Hotels</a>
+        <a href="about.html">About</a>
+        <a href="Contact.html">Contact</a>
+    </nav>
+
+    <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="You can search here...">
+        <label for="search-bar" class="fas fa-search"></label>
+    </form>
+
+</header>
+<main>
+    <div class="contact-info">
+ <div class="card">
+   <i class="card-icon far fa-envelope"></i>
+   <p>Contactus@visicities.in</p>
+ </div>
+
+ <div class="card">
+   <i class="card-icon fas fa-phone"></i>
+   <p>+919420193545</p>
+ </div>
+
+ <div class="card">
+   <i class="card-icon fas fa-map-marker-alt"></i>
+   <p>Indore, India</p>
+ </div>
+</div>
+   </main>
+<!-- footer section  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h4>About us</h4>
+            <p>We want to give you the best experince of your life.</p>
+            <p>Welcome to our portal</p>
+        </div>
+        <div class="box">
+            <h4>branch locations</h4>
+            <a href="#">India</a>
+            <a href="#">USA</a>
+            <a href="#">UK</a>
+            <a href="#">France</a>
+        </div>
+        <div class="box">
+            <h4>quick links</h4>
+            <a href="#">home</a>
+            <a href="#">Hotels</a>
+            <a href="#">About</a>
+            <a href="#">contact</a>
+        </div>
+        <div class="box">
+            <h4>follow us</h4>
+            <a href="https://www.facebook.com/">facebook</a>
+            <a href="https://www.instagram.com/jaymaiyani_/">instagram</a>
+            <a href="https://twitter.com/j29552333">twitter</a>
+            <a href="https://www.linkedin.com/in/jay-maiyani-a8bb35198/">linkedin</a>
+        </div>
+
+    </div>
+
+    <h1 class="credit"> created by <span>DIYA, MANISHKA AND SAMARTH</span> </h1>
+
+</section>
+
+    
+</body>
+</html>

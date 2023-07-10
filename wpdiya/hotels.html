@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels ~ TRS</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+   
+    :root{
+    --orange:#ffa500;
+  }
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin:0; padding:0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  outline: none; border:none;
+  text-decoration: none;
+  transition: all .2s linear;
+}
+*::selection{
+    background-color:(--orange); 
+    color:#fff;
+}
+
+h1 {
+  font-size: 50px;
+}
+html{
+    font-size: 75.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+  }
+
+  section{
+    padding:2rem 9%;
+  }
+
+  header{
+    position: fixed;
+    top:0; left: 0; right:0;
+    background:#333;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:2rem 9%;
+  }
+
+  header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color:#fff;
+    text-transform: uppercase;
+  }
+ 
+  header .logo span{
+    color:var(--orange);
+  }
+  
+  header .navbar a{
+    color:#fff;
+    font-size: 2rem;
+    margin:0 .8rem;
+  }
+  
+  header .navbar a:hover{
+    color:var(--orange);
+  }
+  
+  header .icons i{
+    font-size: 2.5rem;
+    color:#fff;
+    cursor: pointer;
+    margin-right: 2rem;
+  }
+  
+  header .icons i:hover{
+    color:var(--orange);
+  }
+  
+  header .search-bar-container{
+    position: absolute;
+    top:100%; left: 0; right:0;
+    padding:1.5rem 2rem;
+    background:#333;
+    border-top: .1rem solid rgba(255,255,255,.2);
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .search-bar-container.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }  
+
+
+  header .search-bar-container #search-bar{
+    width:100%;
+    padding:1rem;
+    text-transform: none;
+    color:#333;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+  }
+  
+  header .search-bar-container label{
+    color:#fff;
+    cursor: pointer;
+    font-size: 3rem;
+    margin-left: 1.5rem;
+  }
+  
+  header .search-bar-container label:hover{
+    color:var(--orange);
+  }
+
+  .hotels .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:2rem;
+}
+
+.hotels .box-container .box{
+  flex:1 1 30rem;
+  border-radius: .5rem;
+  overflow: hidden;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.1);
+}
+
+.hotels .box-container .box img{
+  height: 25rem;
+  width:100%;
+  object-fit: cover;
+}
+
+.hotels .box-container .box .content{
+  padding:2rem;
+}
+
+.hotels .box-container .box .content h3{
+  font-size:2rem;
+  color:#333;
+}
+
+.hotels .box-container .box .content h3 i{
+  color:var(--orange);
+}
+
+.hotels .box-container .box .content p{
+  font-size:1.7rem;
+  color:#666;
+  padding:1rem 0;
+}
+
+.hotels .box-container .box .content .stars i{
+  font-size:1.7rem;
+  color:var(--orange);
+}
+
+.hotels .box-container .box .content .price{
+  font-size: 2rem;
+  color:#333;
+  padding-top: 1rem;
+}
+
+.hotels .box-container .box .content .price span{
+  color:#666;
+  font-size: 1.5rem;
+  text-decoration: line-through;
+}
+
+.footer{
+    background:#333;
+  }
+  
+  .footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+  }
+  
+  .footer .box-container .box{
+    padding:1rem 0;
+    flex:1 1 25rem;
+  }
+  
+  .footer .box-container .box h4{
+    font-size: 2.2rem;
+    padding:.7rem 0;
+    color:#fff;
+  }
+  
+  .footer .box-container .box p{
+    font-size: 1.3rem;
+    padding:.7rem 0;
+    color:#eee;
+  }
+  
+  .footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    padding:.7rem 0;
+    color:#eee;
+  }
+  
+  .footer .box-container .box a:hover{
+    color:var(--orange);
+    text-decoration: underline;
+  }
+  
+  .footer .credit{
+    text-align: center;
+    padding:2rem 1rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: normal;
+    color:#fff;
+    border-top: .1rem solid rgba(255,255,255,.2);
+  }
+  
+  .footer .credit span{
+    color:var(--orange);
+  }
+</style>
+</head>
+<body>
+    <!-- header section -->
+<header>
+    <a href="#" class="logo"><span>VISI</span>CITIES</a>
+
+    <nav class="navbar">
+        <a href="front_page.html">Home</a>
+        <a href="hotels.html">Hotels</a>
+        <a href="about.html">About</a>
+        <a href="Contact.html">Contact</a>
+    </nav>
+
+    <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="You can search here...">
+        <label for="search-bar" class="fas fa-search"></label>
+    </form>
+
+</header>
+
+<!--Hotels section starts  -->
+<section class="hotels" id="hotels">
+<Br><Br><Br><Br>
+   <center><h1 style="background-color:yellow;" class="heading">
+        <span>h</span>
+        <span>o</span>
+        <span>t</span>
+        <span>e</span>
+        <span>l</span>
+        <span>s</span>
+    </h1></center> 
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="https://th.bing.com/th/id/OIP.bfAm5rhUwUI0J5M41sxUJwHaFj?pid=ImgDet&rs=1" alt="">
+            <div class="content">
+                <h3> Le Bristol Paris </h3>
+                <p> 112 Rue du Faubourg Saint-Honoré, 75008 Paris, France</p>
+                <div class="price"> ₹150000.00/night  <h5>plus taxes</h5><span>₹200000.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://th.bing.com/th/id/R.8b296b42c3ebbb4b0d4f94eb7b809091?rik=3VN7Wdgv0RkU5Q&riu=http%3a%2f%2fwww.luxurytravelersguide.com%2fwp-content%2fuploads%2f2013%2f11%2f2262FACADE_small.jpg&ehk=qa7EChMnEK44jcOGyPxXG7SZV7NfnTtFoUBVKE0njis%3d&risl=&pid=ImgRaw&r=0" alt="">
+          <div class="content">
+                <h3>Hôtel Plaza Athénée</h3>
+                <p> 25 Av. Montaigne, 75008 Paris, France</p>
+                <div class="price"> ₹160000.00/night  <h5>plus taxes</h5><span>₹200000.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://th.bing.com/th/id/OIP.xMdzFSPPNBt_EtBUKfDnpgHaE8?pid=ImgDet&rs=1" alt="">
+            <div class="content">
+                <h3> Bulgari Hotel London </h3>
+                <p>171 Knightsbridge, London SW7 1DW, United Kingdom</p>
+                <div class="price"> ₹100000.00/night  <h5>plus taxes</h5><span>₹150000.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://th.bing.com/th/id/OIP.0pSdRfXdi_ErOADfoca9FAHaE7?pid=ImgDet&rs=1" alt="">
+            <div class="content">
+                <h3> The Connaught Hotel </h3>
+                <p> Carlos Pl, London W1K 2AL, United Kingdom</p>
+                <div class="price"> ₹100000.00/night  <h5>plus taxes</h5><span>₹150000.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://th.bing.com/th/id/R.7ccac492b9fc5bdc01f9f78284a08878?rik=gG2rsr%2bhhNh2pg&riu=http%3a%2f%2fwww.fourseasons.com%2falt%2fimg-opt%2f%7e70.1530.0%2c0000-308%2c5000-3000%2c0000-1687%2c5000%2fpublish%2fcontent%2fdam%2ffourseasons%2fimages%2fweb%2fBEV%2fBEV_528_original.jpg&ehk=yCzM6cwdP0I0jT4VVtL2FW6qf%2fJWIhX6%2fU4YGNnFV8Y%3d&risl=&pid=ImgRaw&r=0" alt="">
+            <div class="content">
+                <h3> Nobu Hotel Las Vegas  </h3>
+                <p> 3570 Las Vegas Blvd S, Las Vegas, NV 89109, United States</p>
+                <div class="price"> ₹50000.00/night  <h5>plus taxes</h5><span>₹130000.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://s3-media0.fl.yelpcdn.com/bphoto/g4m92QIfk_dMmsEdaTpxwA/o.jpg" alt="">
+            <div class="content">
+                <h3> Beverly Wilshire, A Four Seasons Hotel </h3>
+                <p> 9500 Wilshire Blvd, Beverly Hills, CA 90212, United States</p>
+                <div class="price"> ₹110000.00/night  <h5>plus taxes</h5><span>₹120000.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div>
+
+
+
+
+        
+
+    </div>
+
+</section>
+
+<!-- packages section ends -->
+
+<!-- footer section  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h4>About us</h4>
+            <p>We want to give you the best experince of your life</p>
+            <p>Welcome to our portal</p>
+        </div>
+        <div class="box">
+            <h4>branch locations</h4>
+            <a href="#">India</a>
+            <a href="#">USA</a>
+            <a href="#">UK</a>
+            <a href="#">France</a>
+        </div>
+        <div class="box">
+            <h4>quick links</h4>
+            <a href="#">home</a>
+            <a href="#">Hotels</a>
+            
+            <a href="#">About</a>
+            <a href="#">contact</a>
+        </div>
+        <div class="box">
+            <h4>follow us</h4>
+            <a href="https://www.facebook.com/">facebook</a>
+            <a href="https://www.instagram.com/jaymaiyani_/">instagram</a>
+            <a href="https://twitter.com/j29552333">twitter</a>
+            <a href="https://www.linkedin.com/in/jay-maiyani-a8bb35198/">linkedin</a>
+        </div>
+
+    </div>
+
+    <h1 class="credit"> created by <span> Manishka, Diya and Samarth</span> </h1>
+
+</section>
+
+    
+</body>
+</html>
